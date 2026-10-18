@@ -1,55 +1,66 @@
-# Rushdi Nura — Portfolio
+# Hi, I'm Rushdi Nura
 
-React 18 + Vite single-page portfolio. Sections: Hero, Work (4 case studies + 7 indexed projects), Stack, Background (experience, education, certificates), Contact.
+**Software Engineering Graduate · Full-Stack Developer**
 
-## Run
+I'm a Software Engineering graduate from Jimma University who builds practical web applications using JavaScript, TypeScript, React, Node.js, and MongoDB.
 
-```bash
-npm install
-cp .env.example .env   # optional, see "Contact form"
-npm run dev
-npm run lint
-npm run build && npm run preview
-```
+My work spans recruitment platforms, HR reporting systems, and travel booking applications. I enjoy working across the full stack—from designing user interfaces and building REST APIs to implementing authentication and connecting applications to databases.
 
-Node 18+.
+## Featured Projects
 
-## Where content lives
+### [JobNest — MERN Recruitment Platform](https://github.com/RushdiNura/job-portal-website-MERN)
 
-| What | File |
-| --- | --- |
-| Projects, case-study text, links | `src/data/projects.js` |
-| Skill groups | `src/data/skills.js` |
-| Certificates and scans | `src/data/credentials.js` |
-| Screenshots (WebP, ≤1366 px) | `src/assets/img/projects/`, mapped in `src/utils/images.js` |
-| CV download | `src/assets/RUSHDI-NURA-CV.pdf` |
-| Page title, meta, canonical URL, JSON-LD | `index.html` |
-| Sitemap / robots | `public/sitemap.xml`, `public/robots.txt` |
-| Security and cache headers (Vercel) | `vercel.json` |
+A full-stack recruitment platform connecting job seekers and employers.
 
-Case-study claims in `projects.js` are taken from each repository's README. If a README changes (for example, tests are now run, or a feature ships), update the matching `decisions` / `open` lines.
+- Role-based dashboards for different user types.
+- Job applications, resume uploads, and application tracking.
+- Recruitment workflows, candidate screening, and applicant management.
+- Backend APIs and database integration.
 
-## Contact form
+**[View source code](https://github.com/RushdiNura/job-portal-website-MERN)** · **[Live demo](https://job-portal-website-mern.vercel.app/)**
 
-Without configuration the form validates, then opens the visitor's email app with the message prefilled and says plainly that nothing has been sent. To send in-page, set these in `.env` (and in the Vercel project settings):
+### [HR Reporting System](https://github.com/RushdiNura/hr-report-system)
 
-```
-VITE_EMAILJS_SERVICE_ID=
-VITE_EMAILJS_TEMPLATE_ID=
-VITE_EMAILJS_PUBLIC_KEY=
-```
+A full-stack reporting application developed to support organizational HR reporting. Department-level users submit structured reports, while HR users access a dashboard to review and manage reporting data.
 
-The EmailJS public key is designed to be public; restrict it by allowed domain in the EmailJS dashboard. The template should use the variables `name`, `email`, `subject`, `message`. A hidden honeypot field filters basic bots. The EmailJS library is loaded only when a message is sent.
+- JWT authentication and role-based access control.
+- Protected REST APIs and report management.
+- DOCX document generation and Excel data export.
+- React, Node.js, Express, MongoDB, and Mongoose.
 
-## Production URL
+**[Explore the repository](https://github.com/RushdiNura/hr-report-system)**
 
-`https://portfolio-react-phi-self.vercel.app/` appears in `index.html` (canonical, Open Graph, JSON-LD), `public/sitemap.xml` and `public/robots.txt`. If you move to a custom domain, update those four places and the CV.
+### Aerlume — Travel Booking Platform
 
-## Deploying (Vercel)
+A full-stack travel booking application designed around discovering and booking flights, hotels, and holiday packages.
 
-Framework preset Vite, build `npm run build`, output `dist`. `vercel.json` adds security headers and long-lived caching for hashed assets.
+- Search and booking workflows for travel services.
+- Separate customer and administrator dashboards.
+- Stripe payment integration.
+- An AI trip planner to help travelers explore options.
 
-## Notes
+**Technologies:** React, Node.js, Express, MongoDB, and integrated payment and AI services.
 
-- `archive/unused-assets/` holds the original PNG/JPG screenshots and certificate scans that are no longer used by the site. Delete it or keep it out of the repository.
-- Fonts (Newsreader, IBM Plex Sans, IBM Plex Mono) load from Google Fonts with `display=swap`.
+## Tech Stack
+
+| Area | Technologies |
+|---|---|
+| **Languages** | JavaScript, TypeScript, SQL |
+| **Frontend** | React, React Native, HTML5, CSS3, Tailwind CSS |
+| **Backend** | Node.js, Express.js, REST APIs, JWT authentication |
+| **Databases** | MongoDB, Mongoose, MySQL |
+| **Tools & Deployment** | Git, GitHub, VS Code, Postman, Vercel, Render |
+
+**Currently developing my skills in:** Python, Java, C++, Docker, and backend architecture.
+
+## Current Learning Focus
+
+I'm deepening my understanding of backend architecture, Docker, and AI-assisted development workflows. My focus is on applying these concepts to practical projects and improving the way I design, build, and maintain software.
+
+## Let's Connect
+
+- **Portfolio:** [rushdinura.vercel.app](https://rushdinura.vercel.app/)
+- **GitHub:** [@RushdiNura](https://github.com/RushdiNura)
+- **Email:** [rushdinurafita@gmail.com](mailto:rushdinurafita@gmail.com)
+
+I'm interested in opportunities to contribute to useful software, collaborate with development teams, and continue growing as a software engineer.
