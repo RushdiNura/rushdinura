@@ -1,5 +1,6 @@
 import jobnest from '../assets/img/projects/jobnest.webp';
 import hrReport from '../assets/img/projects/hr-report.webp';
+import quickfuel from '../assets/img/projects/quickfuel.webp';
 import jimmitti from '../assets/img/projects/jimmitti.webp';
 import ecommerce from '../assets/img/projects/ecommerce.webp';
 import aerlume from '../assets/img/projects/aerlume.webp';
@@ -16,6 +17,7 @@ const projectImages = {
   jobnest,
   'hr-report': hrReport,
   jimmitti,
+  quickfuel,
   ecommerce,
   aerlume,
   terra,

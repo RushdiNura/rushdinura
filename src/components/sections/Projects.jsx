@@ -57,9 +57,9 @@ export default function Projects() {
       <div className="shell">
         <header className="section-heading">
           <p className="label">Work</p>
-          <h2 id="work-title">Four projects in detail, seven more below</h2>
+          <h2 id="work-title">Five projects in detail, seven more below</h2>
           <p className="section-intro">
-            Live demo and source links are on each project. For the first four I’ve written down what the app does, the engineering choices I’d point to, and what is still unfinished.
+            Live demo and source links are on each project. For the first five I’ve written down what the app does, the engineering choices I’d point to, and what is still unfinished.
           </p>
         </header>
 

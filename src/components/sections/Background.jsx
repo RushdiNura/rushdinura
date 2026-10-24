@@ -29,19 +29,12 @@ const ledger = [
 
 export default function Background() {
   return (
-    <section
-      id="background"
-      className="background"
-      aria-labelledby="background-title"
-    >
+    <section id="background" className="background" aria-labelledby="background-title">
       <div className="shell background-grid">
         <header className="section-heading">
           <p className="label">Background</p>
           <h2 id="background-title">Experience, study and the rest</h2>
-          <p className="section-intro">
-            Internship, degree, student roles and certificates, as listed on my
-            CV.
-          </p>
+          <p className="section-intro">Internship, degree, student roles and certificates, as listed on my CV.</p>
         </header>
 
         <div>
@@ -59,7 +52,7 @@ export default function Background() {
           </ol>
 
           <h3 className="credentials-title">Certificates</h3>
-          {/* <ul className="credentials">
+          <ul className="credentials">
             {credentials.map((c) => (
               <li key={c.title}>
                 <span>
@@ -73,39 +66,6 @@ export default function Background() {
                 )}
               </li>
             ))}
-          </ul> */}
-          <ul className="credentials">
-            {credentials.map((c) => {
-              const scans =
-                c.scans ||
-                (c.scan ? [{ label: "View scan", src: c.scan }] : []);
-              return (
-                <li key={c.title}>
-                  <span>
-                    <strong>{c.title}</strong>
-                    <span className="credential-issuer">
-                      {c.issuer}
-                      {c.date ? ` · ${c.date}` : ""}
-                    </span>
-                  </span>
-                  {scans.length > 0 && (
-                    <span className="credential-links">
-                      {scans.map((s) => (
-                        <a
-                          key={s.label}
-                          href={s.src}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {s.label}
-                          <span className="visually-hidden">: {c.title}</span>
-                        </a>
-                      ))}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
           </ul>
         </div>
       </div>
