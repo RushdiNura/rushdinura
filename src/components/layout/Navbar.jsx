@@ -28,16 +28,33 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`} onKeyDown={onKeyDown}>
+    <header
+      className={`site-header${scrolled ? " is-scrolled" : ""}`}
+      onKeyDown={onKeyDown}
+    >
       <nav className="shell site-nav" aria-label="Main">
-        <a className="wordmark" href="#home" onClick={() => setOpen(false)}>
+        {/* <a className="wordmark" href="#home" onClick={() => setOpen(false)}>
           Rushdi Nura
+        </a> */}
+        <a
+          className="wordmark"
+          href="#home"
+          onClick={() => setOpen(false)}
+          aria-label="Rushdi Nura, home"
+        >
+          <span className="wordmark-mark" aria-hidden="true">
+            RN
+          </span>
+          <span>Rushdi Nura</span>
         </a>
-
         <ul className="nav-list">
           {LINKS.map((link) => (
             <li key={link.id}>
-              <a href={`#${link.id}`} className="nav-link" aria-current={activeId === link.id ? 'true' : undefined}>
+              <a
+                href={`#${link.id}`}
+                className="nav-link"
+                aria-current={activeId === link.id ? "true" : undefined}
+              >
                 {link.label}
               </a>
             </li>
@@ -51,7 +68,7 @@ export default function Navbar() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-nav"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
         </button>
@@ -61,7 +78,12 @@ export default function Navbar() {
         <ul className="shell">
           {LINKS.map((link, index) => (
             <li key={link.id}>
-              <a ref={index === 0 ? firstLinkRef : undefined} href={`#${link.id}`} onClick={() => setOpen(false)} aria-current={activeId === link.id ? 'true' : undefined}>
+              <a
+                ref={index === 0 ? firstLinkRef : undefined}
+                href={`#${link.id}`}
+                onClick={() => setOpen(false)}
+                aria-current={activeId === link.id ? "true" : undefined}
+              >
                 {link.label}
               </a>
             </li>
