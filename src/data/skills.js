@@ -1,12 +1,38 @@
-// Grouped from the CV and from the stacks actually used in the projects.
 export const skillGroups = [
-  { label: 'Languages', items: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'SQL'] },
-  { label: 'Frontend', items: ['React', 'HTML5', 'CSS3', 'Tailwind CSS', 'Vite', 'React Native'] },
-  { label: 'Backend', items: ['Node.js', 'Express.js', 'REST APIs', 'JWT authentication', 'Role-based access control', 'Socket.IO'] },
-  { label: 'Data', items: ['MongoDB', 'Mongoose', 'MySQL', 'CRUD and data modelling'] },
   {
-    label: 'Seen in my projects',
-    items: ['TanStack Query', 'Redux Toolkit', 'React Hook Form', 'Zod', 'Stripe', 'Cloudinary', 'Leaflet', 'Chart.js', 'Jest', 'Supertest', 'Vitest'],
+    id: 'frontend',
+    label: 'Frontend',
+    note: 'Interfaces, component systems, and responsive layout.',
+    items: ['JavaScript', 'TypeScript', 'React', 'HTML', 'CSS', 'Tailwind CSS', 'Vite'],
   },
-  { label: 'Workflow', items: ['Git and GitHub', 'Postman', 'VS Code', 'Vercel', 'Render', 'Testing and debugging', 'Documentation', 'AI-assisted development'] },
+  {
+    id: 'backend',
+    label: 'Backend',
+    note: 'Application logic, APIs, and access control.',
+    items: ['Node.js', 'Express.js', 'REST APIs', 'JWT authentication', 'Role-based access', 'Socket.IO'],
+  },
+  {
+    id: 'data',
+    label: 'Databases',
+    note: 'Persistent data, data modeling, and everyday queries.',
+    items: ['MongoDB', 'Mongoose', 'MySQL', 'SQL', 'CRUD operations'],
+  },
+  {
+    id: 'mobile',
+    label: 'Mobile',
+    note: 'Mobile application development frameworks.',
+    items: ['Flutter', 'React Native'],
+  },
+  {
+    id: 'languages',
+    label: 'Other languages',
+    note: 'Additional programming languages from coursework and practice.',
+    items: ['Python', 'Java', 'C++'],
+  },
+  {
+    id: 'tools',
+    label: 'Tools & delivery',
+    note: 'Version control, testing workflows, design, and deployment.',
+    items: ['Git', 'GitHub', 'Postman', 'VS Code', 'Figma', 'Vercel', 'Render'],
+  },
 ];

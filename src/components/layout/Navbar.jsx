@@ -1,72 +1,104 @@
 import { useEffect, useRef, useState } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiArrowUpRight, FiMenu, FiX } from 'react-icons/fi';
 import { useActiveSection } from '../../hooks/useActiveSection';
 
 const LINKS = [
-  { id: 'work', label: 'Work' },
-  { id: 'stack', label: 'Stack' },
-  { id: 'background', label: 'Background' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'projects', label: 'Work' },
+  { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Stack' },
+  { id: 'experience', label: 'Background' },
+  { id: 'leadership', label: 'Leadership' },
+  { id: 'certificates', label: 'Certificates' },
 ];
-const SECTION_IDS = ['home', ...LINKS.map((l) => l.id)];
+
+const SECTION_IDS = ['home', 'projects', 'about', 'skills', 'experience', 'leadership', 'certificates', 'contact'];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const buttonRef = useRef(null);
-  const firstLinkRef = useRef(null);
+  const menuButtonRef = useRef(null);
+  const firstMobileLinkRef = useRef(null);
   const { activeId, scrolled } = useActiveSection(SECTION_IDS, 110);
 
-  useEffect(() => {
-    if (open) firstLinkRef.current?.focus();
-  }, [open]);
-
-  const onKeyDown = (event) => {
+  const closeMenu = () => setOpen(false);
+  const navigateFromMobileMenu = (sectionId) => {
+    setOpen(false);
+    window.requestAnimationFrame(() => {
+      const heading = document.getElementById(sectionId)?.querySelector('h1, h2');
+      if (!heading) return;
+      if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+      heading.focus({ preventScroll: true });
+    });
+  };
+  const handleHeaderKeyDown = (event) => {
     if (event.key === 'Escape' && open) {
-      setOpen(false);
-      buttonRef.current?.focus();
+      closeMenu();
+      menuButtonRef.current?.focus();
     }
   };
 
+  useEffect(() => {
+    if (open) firstMobileLinkRef.current?.focus();
+  }, [open]);
+
   return (
-    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`} onKeyDown={onKeyDown}>
-      <nav className="shell site-nav" aria-label="Main">
-        <a className="wordmark" href="#home" onClick={() => setOpen(false)}>
-          Rushdi Nura
+    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`} onKeyDown={handleHeaderKeyDown}>
+      <nav className="site-nav fieldbook-shell" aria-label="Main navigation">
+        <a className="wordmark" href="#home" onClick={closeMenu} aria-label="Rushdi Nura — home">
+          <span className="wordmark-stamp" aria-hidden="true">RN</span>
+          <span>Rushdi <strong>Nura</strong></span>
         </a>
 
-        <ul className="nav-list">
+        <div className="desktop-nav">
           {LINKS.map((link) => (
-            <li key={link.id}>
-              <a href={`#${link.id}`} className="nav-link" aria-current={activeId === link.id ? 'true' : undefined}>
-                {link.label}
-              </a>
-            </li>
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className={`nav-link${activeId === link.id ? ' is-active' : ''}`}
+              aria-current={activeId === link.id ? 'location' : undefined}
+            >
+              {link.label}
+            </a>
           ))}
-        </ul>
+        </div>
+
+        <a className="nav-contact" href="#contact">
+          Contact <FiArrowUpRight aria-hidden="true" />
+        </a>
 
         <button
-          ref={buttonRef}
+          ref={menuButtonRef}
           type="button"
-          className="menu-toggle"
-          onClick={() => setOpen((v) => !v)}
+          className="mobile-menu-toggle"
+          onClick={() => setOpen((value) => !value)}
+          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-controls="mobile-navigation"
         >
           {open ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
         </button>
       </nav>
 
-      <div className="mobile-nav" id="mobile-nav" hidden={!open}>
-        <ul className="shell">
-          {LINKS.map((link, index) => (
-            <li key={link.id}>
-              <a ref={index === 0 ? firstLinkRef : undefined} href={`#${link.id}`} onClick={() => setOpen(false)} aria-current={activeId === link.id ? 'true' : undefined}>
-                {link.label}
+      <div className="mobile-nav-panel" id="mobile-navigation" hidden={!open}>
+          <nav className="mobile-nav fieldbook-shell" aria-label="Mobile navigation">
+            {LINKS.map((link, index) => (
+              <a
+                key={link.id}
+                ref={index === 0 ? firstMobileLinkRef : undefined}
+                href={`#${link.id}`}
+                onClick={() => navigateFromMobileMenu(link.id)}
+                aria-current={activeId === link.id ? 'location' : undefined}
+              >
+                <span className="mobile-nav-number">0{index + 1}</span>
+                <span>{link.label}</span>
+                <FiArrowUpRight aria-hidden="true" />
               </a>
-            </li>
-          ))}
-        </ul>
+            ))}
+            <a href="#contact" onClick={() => navigateFromMobileMenu('contact')}>
+              <span className="mobile-nav-number">{String(LINKS.length + 1).padStart(2, '0')}</span>
+              <span>Contact</span>
+              <FiArrowUpRight aria-hidden="true" />
+            </a>
+          </nav>
       </div>
     </header>
   );

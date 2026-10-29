@@ -1,7 +1,20 @@
 /** @type {import('tailwindcss').Config} */
-// Tailwind is kept in the toolchain for its base layer; the site's styling lives in src/index.css.
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
-  theme: { extend: {} },
+  theme: {
+    extend: {
+      colors: {
+        paper: '#f2eee5',
+        ink: '#222720',
+        rust: '#a64731',
+        forest: '#2d4438',
+      },
+      fontFamily: {
+        display: ['"Space Grotesk"', 'sans-serif'],
+        body: ['"Inter"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
+    },
+  },
   plugins: [],
 };

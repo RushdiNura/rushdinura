@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  ignorePatterns: ['dist', 'archive', 'node_modules'],
+  ignorePatterns: ['dist', 'node_modules'],
   env: { browser: true, es2021: true, node: true },
   extends: [
     'eslint:recommended',
