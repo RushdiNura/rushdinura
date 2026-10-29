@@ -1,69 +1,37 @@
-import jobnestImage from '../assets/projects/jobnest-preview.png';
-import hrReportImage from '../assets/projects/hr-report-preview.png';
-import jimmittiImage from '../assets/projects/jimmitti-preview.png';
-import ecommerceImage from '../assets/projects/ecommerce-techzone.webp';
-import quickfuelImage from '../assets/projects/quickfuel-preview.webp';
-import securebankImage from '../assets/projects/securebank-preview.webp';
-import nexuschatImage from '../assets/projects/nexuschat-preview.webp';
-import aerlumeImage from '../assets/projects/Aerlume-Travel-considered (2).png';
-import terraImage from '../assets/projects/real-estate-preview.png';
-import hospitalImage from '../assets/projects/hospital-preview.png';
-import surveyImage from '../assets/projects/Survey-Builder.png';
-import lmsImage from '../assets/projects/lms-preview.png';
-import gymImage from '../assets/projects/gym-preview.png';
-import servicePortalImage from '../assets/projects/Service-Portal (1).png';
+import jobnest from '../assets/img/projects/jobnest.webp';
+import hrReport from '../assets/img/projects/hr-report.webp';
+import banking from '../assets/img/projects/banking.webp';
+import nexuschat from '../assets/img/projects/nexuschat.webp';
+import quickfuel from '../assets/img/projects/quickfuel.webp';
+import jimmitti from '../assets/img/projects/jimmitti.webp';
+import ecommerce from '../assets/img/projects/ecommerce.webp';
+import aerlume from '../assets/img/projects/aerlume.webp';
+import terra from '../assets/img/projects/terra.webp';
+import meridian from '../assets/img/projects/meridian.webp';
+import survey from '../assets/img/projects/survey.webp';
+import lms from '../assets/img/projects/lms.webp';
+import gym from '../assets/img/projects/gym.webp';
+import servicePortal from '../assets/img/projects/service-portal.webp';
 
+// Screenshots are 1350–1366 px wide; the height varies slightly, so callers
+// reserve space with CSS aspect-ratio rather than relying on intrinsic size.
 const projectImages = {
-  jobnest: jobnestImage,
-  'hr-report': hrReportImage,
-  jimmitti: jimmittiImage,
-  'ecommerce-platform': ecommerceImage,
-  'Aerlume-Travel-considered (2)': aerlumeImage,
-  'real-estate-terra (1)': terraImage,
-  'Meridian-Health-Hospital-Management-Platform': hospitalImage,
-  'Survey-Builder': surveyImage,
-  'LMS-Platform-Learn-Without-Limits(1)': lmsImage,
-  gym: gymImage,
-  quickfuel: quickfuelImage,
-  securebank: securebankImage,
-  nexuschat: nexuschatImage,
-  'Service-Portal (1)': servicePortalImage,
+  jobnest,
+  'hr-report': hrReport,
+  jimmitti,
+  quickfuel,
+  banking,
+  nexuschat,
+  ecommerce,
+  aerlume,
+  terra,
+  meridian,
+  survey,
+  lms,
+  gym,
+  'service-portal': servicePortal,
 };
 
-const certificateImages = import.meta.glob('/src/assets/certificates/*.{png,jpg,jpeg,webp}', {
-  eager: true,
-  import: 'default',
-});
-
-function filenameOf(path) {
-  return path.split('/').pop().replace(/\.[^/.]+$/, '');
-}
-
-export function getProjectImage(filename) {
-  return filename ? projectImages[filename] || null : null;
-}
-
-const certificateTitles = {
-  'AI Fundamentals Udacity': 'AI Fundamentals · Udacity',
-  'British Counsil': 'Peace Education Training · British Council',
-  'Grand Food Club': 'Grand Food Club',
-  'JIT Peace Forum': 'JIT Peace Forum',
-  'Student Council Representative': 'Student Council Representative',
-  'gdsao Club': 'GDSAO Club',
-  'peace-forum': 'Peace Forum',
-  'Grade 10 Straight A': 'Grade 10 · Straight A',
-  'Prosperity party': 'Certificate of Participation',
-  letter: 'Letter of Recommendation',
-};
-
-export function getCertificateImages() {
-  return Object.entries(certificateImages)
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([path, src]) => {
-      const filename = filenameOf(path);
-      return {
-        src,
-        title: certificateTitles[filename] || filename.replace(/[-_]/g, ' '),
-      };
-    });
+export function getProjectImage(key) {
+  return projectImages[key] || null;
 }
